@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintProducts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Products">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fragmentContainerProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cardViewProducts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/fragmentContainerProducts"
+                        app:layout_constraintStart_toStartOf="@+id/fragmentContainerProducts"
+                        tools:ignore="MissingConstraints">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewAddProducts"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:ignore="MissingConstraints"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/add_products" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/nextAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardViewProducts">
+
+
+                        <ImageView
+                            android:id="@+id/ivCircleAdd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/img_circle"
+                            app:layout_constraintEnd_toStartOf="@+id/tvNextAddProduct"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/img_add"
+                            app:layout_constraintBottom_toBottomOf="@id/ivCircleAdd"
+                            app:layout_constraintEnd_toEndOf="@id/ivCircleAdd"
+                            app:layout_constraintStart_toStartOf="@+id/ivCircleAdd"
+                            app:layout_constraintTop_toTopOf="@id/ivCircleAdd" />
+
+                        <TextView
+                            android:id="@+id/tvNextAddProduct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_products"
+                            android:textColor="@color/pink"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintAddProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardViewProducts">
+
+                        <TextView
+                            android:id="@+id/tvProducts"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/bg_border_content"
+                            android:backgroundTint="@color/grey"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="@+id/tvProducts"
+                            app:layout_constraintEnd_toEndOf="@+id/tvProducts"
+                            app:layout_constraintStart_toStartOf="@+id/tvProducts"
+                            app:layout_constraintTop_toTopOf="@+id/tvProducts">
+
+                            <ImageView
+                                android:id="@+id/ivCircle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img_circle"
+                                app:layout_constraintEnd_toStartOf="@+id/tvAddProduct"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img_add"
+                                app:layout_constraintBottom_toBottomOf="@id/ivCircle"
+                                app:layout_constraintEnd_toEndOf="@id/ivCircle"
+                                app:layout_constraintStart_toStartOf="@+id/ivCircle"
+                                app:layout_constraintTop_toTopOf="@id/ivCircle" />
+
+                            <TextView
+                                android:id="@+id/tvAddProduct"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/add_products"
+                                android:textColor="@color/pink"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@id/ivCircle"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="470dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/viewGrey"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_btn_back"
+            android:gravity="center"
+            android:text="@string/back_btn"
+            android:textColor="@color/blue"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/bg_btn_next"
+            android:backgroundTint="@color/blue"
+            android:gravity="center"
+            android:text="@string/next_btn"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnBack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

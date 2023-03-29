@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/industrialProjectEL">
+
+    <fragment
+        android:id="@+id/industrialProjectEL"
+        android:name="com.example.yonibeatonreddymux.IndustrialProjectEL"
+        android:label="fragment_industrial_project_e_l"
+        tools:layout="@layout/fragment_industrial_project_e_l" >
+        <action
+            android:id="@+id/action_industrialProjectEL_to_mainDataRecycler"
+            app:destination="@id/mainDataRecycler" />
+        <action
+            android:id="@+id/action_industrialProjectEL_to_blankFragment"
+            app:destination="@id/blankFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainDataRecycler"
+        android:name="com.example.yonibeatonreddymux.MainDataRecycler"
+        android:label="fragment_main_data_recycler"
+        tools:layout="@layout/fragment_main_data_recycler" >
+        <action
+            android:id="@+id/action_mainDataRecycler_to_confirmation"
+            app:destination="@id/confirmation" />
+        <action
+            android:id="@+id/action_mainDataRecycler_to_industrialProjectEL"
+            app:destination="@id/industrialProjectEL" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmation"
+        android:name="com.example.yonibeatonreddymux.Confirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" >
+        <action
+            android:id="@+id/action_confirmation_to_mainDataRecycler"
+            app:destination="@id/mainDataRecycler" />
+    </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.yonibeatonreddymux.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
+</navigation>

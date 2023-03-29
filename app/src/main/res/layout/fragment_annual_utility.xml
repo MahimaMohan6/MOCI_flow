@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnnualUtility">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="72dp"
+                android:background="@drawable/bg_border_content"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvPleaseFill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/please_fill_in_the_following"
+                    android:textColor="@color/pink"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/viewLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPleaseFill" />
+
+                <TextView
+                    android:id="@+id/tvTotalInvest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="22dp"
+                    android:text="@string/total_invest_capital_QAR"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewLine" />
+
+                <EditText
+                    android:id="@+id/etTotalInvest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_formdata_border"
+                    android:hint="@string/total_invest_capital_QAR"
+                    android:padding="16dp"
+                    android:textColorHint="@color/dark_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvTotalInvest"
+                    app:layout_constraintStart_toStartOf="@+id/tvTotalInvest"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTotalInvest" />
+
+                <TextView
+                    android:id="@+id/tvArea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/area"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etTotalInvest"
+                    app:layout_constraintStart_toStartOf="@id/etTotalInvest"
+                    app:layout_constraintTop_toBottomOf="@+id/etTotalInvest" />
+
+                <EditText
+                    android:id="@+id/etArea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_formdata_border"
+                    android:hint="@string/area"
+                    android:padding="16dp"
+                    android:textColorHint="@color/dark_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvArea"
+                    app:layout_constraintStart_toStartOf="@+id/tvArea"
+                    app:layout_constraintTop_toBottomOf="@+id/tvArea" />
+
+                <TextView
+                    android:id="@+id/tvElectricity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/electricity"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etArea"
+                    app:layout_constraintStart_toStartOf="@id/etArea"
+                    app:layout_constraintTop_toBottomOf="@+id/etArea" />
+
+                <EditText
+                    android:id="@+id/etElectricity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_formdata_border"
+                    android:hint="@string/electricity"
+                    android:padding="16dp"
+                    android:textColorHint="@color/dark_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvElectricity"
+                    app:layout_constraintStart_toStartOf="@+id/tvElectricity"
+                    app:layout_constraintTop_toBottomOf="@+id/tvElectricity" />
+
+                <TextView
+                    android:id="@+id/tvWater"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/water"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etElectricity"
+                    app:layout_constraintStart_toStartOf="@id/etElectricity"
+                    app:layout_constraintTop_toBottomOf="@+id/etElectricity" />
+
+                <EditText
+                    android:id="@+id/etWater"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_formdata_border"
+                    android:hint="@string/water"
+                    android:padding="16dp"
+                    android:textColorHint="@color/dark_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvWater"
+                    app:layout_constraintStart_toStartOf="@+id/tvWater"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWater" />
+
+                <TextView
+                    android:id="@+id/tvGas"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/gas_and_diesel"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etWater"
+                    app:layout_constraintStart_toStartOf="@id/etWater"
+                    app:layout_constraintTop_toBottomOf="@+id/etWater" />
+
+                <EditText
+                    android:id="@+id/etGas"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_formdata_border"
+                    android:hint="@string/gas_and_diesel"
+                    android:padding="16dp"
+                    android:textColorHint="@color/dark_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvGas"
+                    app:layout_constraintStart_toStartOf="@+id/tvGas"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGas" />
+
+                <TextView
+                    android:id="@+id/tvManufacturing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/manufacturing_stages"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etGas"
+                    app:layout_constraintStart_toStartOf="@id/etGas"
+                    app:layout_constraintTop_toBottomOf="@+id/etGas" />
+
+                <EditText
+                    android:id="@+id/etManufacturing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_formdata_border"
+                    android:hint="@string/manufacturing_stages"
+                    android:padding="16dp"
+                    android:textColorHint="@color/dark_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tvManufacturing"
+                    app:layout_constraintStart_toStartOf="@+id/tvManufacturing"
+                    app:layout_constraintTop_toBottomOf="@+id/tvManufacturing" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="470dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/viewGrey"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_btn_back"
+            android:gravity="center"
+            android:text="@string/back_btn"
+            android:textColor="@color/blue"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/bg_btn_next"
+            android:backgroundTint="@color/blue"
+            android:gravity="center"
+            android:text="@string/next_btn"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnBack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

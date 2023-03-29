@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintAttachments"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Attachments">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scrollViewConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_border_content"
+        android:elevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvAttachFeasibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="22dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/attach_the_feasibility"
+            android:textColor="@color/light_black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUpload1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_border_dashed"
+            android:hint="@string/upload_attachment"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="16dp"
+            android:text=""
+            android:textColor="@color/light_black"
+            android:textColorHint="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvAttachFeasibility"
+            app:layout_constraintStart_toStartOf="@+id/tvAttachFeasibility"
+            app:layout_constraintTop_toBottomOf="@id/tvAttachFeasibility" />
+
+        <ImageView
+            android:id="@+id/ivPdf1"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_pdf"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUpload1"
+            app:layout_constraintStart_toStartOf="@+id/tvUpload1"
+            app:layout_constraintTop_toTopOf="@+id/tvUpload1" />
+
+        <ImageView
+            android:id="@+id/ivUpload1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/img_upload"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tvUpload1"
+            app:layout_constraintEnd_toEndOf="@id/tvUpload1"
+            app:layout_constraintTop_toTopOf="@id/tvUpload1" />
+
+        <ImageView
+            android:id="@+id/ivRemove1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="14dp"
+            android:src="@drawable/ic_minimize"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUpload1"
+            app:layout_constraintEnd_toEndOf="@+id/tvUpload1"
+            app:layout_constraintTop_toTopOf="@+id/tvUpload1" />
+
+        <TextView
+            android:id="@+id/hint1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/mb_max_for_1file"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/tvUpload1"
+            app:layout_constraintStart_toStartOf="@id/tvUpload1"
+            app:layout_constraintTop_toBottomOf="@id/tvUpload1" />
+
+        <TextView
+            android:id="@+id/tvAttachLand"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/attach_the_land"
+            android:textColor="@color/light_black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvUpload1"
+            app:layout_constraintStart_toStartOf="@id/tvUpload1"
+            app:layout_constraintTop_toBottomOf="@id/hint1" />
+
+        <TextView
+            android:id="@+id/tvUpload2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_border_dashed"
+            android:hint="@string/upload_attachment"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="16dp"
+            android:textColor="@color/light_black"
+            android:textColorHint="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvAttachLand"
+            app:layout_constraintStart_toStartOf="@+id/tvAttachLand"
+            app:layout_constraintTop_toBottomOf="@id/tvAttachLand" />
+
+        <ImageView
+            android:id="@+id/ivPdf2"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_pdf"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUpload2"
+            app:layout_constraintStart_toStartOf="@+id/tvUpload2"
+            app:layout_constraintTop_toTopOf="@+id/tvUpload2" />
+
+        <ImageView
+            android:id="@+id/ivUpload2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/img_upload"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tvUpload2"
+            app:layout_constraintEnd_toEndOf="@id/tvUpload2"
+            app:layout_constraintTop_toTopOf="@id/tvUpload2" />
+
+        <ImageView
+            android:id="@+id/ivRemove2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="14dp"
+            android:src="@drawable/ic_minimize"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUpload2"
+            app:layout_constraintEnd_toEndOf="@+id/tvUpload2"
+            app:layout_constraintTop_toTopOf="@+id/tvUpload2" />
+
+        <TextView
+            android:id="@+id/hint2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/mb_max_for_1file"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/tvUpload2"
+            app:layout_constraintStart_toStartOf="@id/tvUpload2"
+            app:layout_constraintTop_toBottomOf="@id/tvUpload2" />
+
+        <TextView
+            android:id="@+id/tvAttachProof"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/proof_of_usufruct"
+            android:textColor="@color/light_black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvUpload2"
+            app:layout_constraintStart_toStartOf="@id/tvUpload2"
+            app:layout_constraintTop_toBottomOf="@id/hint2" />
+
+        <TextView
+            android:id="@+id/tvUpload3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_border_dashed"
+            android:hint="@string/upload_attachment"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="16dp"
+            android:textColor="@color/light_black"
+            android:textColorHint="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvAttachProof"
+            app:layout_constraintStart_toStartOf="@+id/tvAttachProof"
+            app:layout_constraintTop_toBottomOf="@id/tvAttachProof" />
+
+
+        <ImageView
+            android:id="@+id/ivPdf3"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_pdf"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUpload3"
+            app:layout_constraintStart_toStartOf="@+id/tvUpload3"
+            app:layout_constraintTop_toTopOf="@+id/tvUpload3" />
+
+        <ImageView
+            android:id="@+id/ivUpload3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/img_upload"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tvUpload3"
+            app:layout_constraintEnd_toEndOf="@id/tvUpload3"
+            app:layout_constraintTop_toTopOf="@id/tvUpload3" />
+
+        <ImageView
+            android:id="@+id/ivRemove3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="14dp"
+            android:src="@drawable/ic_minimize"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUpload3"
+            app:layout_constraintEnd_toEndOf="@+id/tvUpload3"
+            app:layout_constraintTop_toTopOf="@+id/tvUpload3" />
+
+        <TextView
+            android:id="@+id/hint3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/mb_max_for_1file"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tvUpload3"
+            app:layout_constraintStart_toStartOf="@id/tvUpload3"
+            app:layout_constraintTop_toBottomOf="@id/tvUpload3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewConstraint">
+
+        <View
+            android:id="@+id/viewGrey"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_btn_back"
+            android:gravity="center"
+            android:text="@string/back_btn"
+            android:textColor="@color/blue"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/bg_btn_next"
+            android:backgroundTint="@color/blue"
+            android:gravity="center"
+            android:text="@string/next_btn"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnBack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
