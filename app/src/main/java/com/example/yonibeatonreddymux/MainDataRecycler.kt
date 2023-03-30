@@ -125,7 +125,7 @@ class MainDataRecycler : Fragment() {
         }
         binding.mainDataRecycler.setOnApplyWindowInsetsListener { v, windowInsets ->
             val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
+            v.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom+24  }
             windowInsets
         }
         return view

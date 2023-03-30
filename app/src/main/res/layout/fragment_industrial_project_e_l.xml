@@ -188,14 +188,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="8dp"
                         android:lineSpacingExtra="2dp"
                         android:text="@string/indystry_project"
                         android:textColor="@color/pink"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivIndusrty"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/ivIndusrty"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivIndusrty"/>
 
                     <View
                         android:id="@+id/view"

@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainDataRecycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainDataRecycler"
     tools:context=".MainDataRecycler">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -138,8 +138,8 @@
         android:id="@+id/constraintRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_border"
         android:layout_marginTop="-32dp"
+        android:background="@drawable/bg_border"
         android:backgroundTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintFirst">
@@ -165,50 +165,54 @@
             app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintSecond"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintSecond"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnConstraint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintRecycler">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintBottom_toTopOf="@+id/btnConstraint"
-            app:layout_constraintTop_toBottomOf="@+id/constraintRecycler">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragmentContainer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+        <!-- <androidx.fragment.app.FragmentContainerView
+             android:id="@+id/fragmentProjectSite"
+             android:name="com.example.yonibeatonreddymux.ProjectSiteData"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:visibility="gone"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/recyclerView"
+             tools:ignore="NotSibling"
+             tools:layout="@layout/fragment_projectsite_data" />
 
-            <!-- <androidx.fragment.app.FragmentContainerView
-                 android:id="@+id/fragmentProjectSite"
-                 android:name="com.example.yonibeatonreddymux.ProjectSiteData"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:visibility="gone"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@id/recyclerView"
-                 tools:ignore="NotSibling"
-                 tools:layout="@layout/fragment_projectsite_data" />
+         <androidx.fragment.app.FragmentContainerView
+             android:id="@+id/fragmentProducts"
+             android:name="com.example.yonibeatonreddymux.Products"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:visibility="gone"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+             tools:layout="@layout/fragment_products" />-->
 
-             <androidx.fragment.app.FragmentContainerView
-                 android:id="@+id/fragmentProducts"
-                 android:name="com.example.yonibeatonreddymux.Products"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:visibility="gone"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-                 tools:layout="@layout/fragment_products" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintBottom_toBottomOf="parent">
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <View
             android:id="@+id/viewGrey"
             android:layout_width="match_parent"
