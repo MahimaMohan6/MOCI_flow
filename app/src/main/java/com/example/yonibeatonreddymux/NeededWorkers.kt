@@ -30,6 +30,8 @@ import org.w3c.dom.Text
 class NeededWorkers : Fragment() {
     lateinit var binding: FragmentNeededWorkersBinding
     lateinit var recyclerViewNation: RecyclerView
+    lateinit var btnNext:TextView
+    lateinit var btnBack:TextView
     var listNation = ArrayList<NationalityDataClass>()
     lateinit var recyclerviewAddWorkers: RecyclerView
     var listAddWorkers = ArrayList<AddNeededWorkersDataClass>()
@@ -47,6 +49,8 @@ class NeededWorkers : Fragment() {
         binding = FragmentNeededWorkersBinding.inflate(inflater, container, false)
         val view = binding.root
         val addView = layoutInflater.inflate(R.layout.add_neededworkers, null)
+        btnBack=requireActivity().findViewById(R.id.btnBack)
+        btnNext=requireActivity().findViewById(R.id.btnNext)
         //return inflater.inflate(R.layout.fragment_needed_workers, container, false)
         recyclerviewAddWorkers = binding.recyclerViewAddNeededWorkers
         recyclerviewAddWorkers.layoutManager = LinearLayoutManager(requireContext())
@@ -102,7 +106,7 @@ class NeededWorkers : Fragment() {
             }
 
         })
-        binding.btnNext.setOnClickListener {
+        btnNext.setOnClickListener {
             if (!listAddWorkers.isNullOrEmpty()) {
                 val currentIndex = selectedLiveData.value
                 val nextIndex = currentIndex!! + 1
@@ -121,17 +125,13 @@ class NeededWorkers : Fragment() {
         addView.findViewById<ImageView>(R.id.ivEdit).setOnClickListener {
             AddBottomSheet()
         }
-        binding.btnBack.setOnClickListener {
+        btnBack.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val previousIndex = currentIndex!! - 1
             selectedLiveData.value = previousIndex
         }
 
-        binding.btnConstraint.setOnApplyWindowInsetsListener { v, windowInsets ->
-            val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams>{bottomMargin=insets.bottom  }
-            windowInsets
-        }
+
         val alertBuilder = AlertDialog.Builder(requireContext())
         alertBuilder.setMessage(R.string.do_you_want_to_delete)
         alertBuilder.setTitle(R.string.delete)
@@ -160,8 +160,8 @@ class NeededWorkers : Fragment() {
         addView.findViewById<TextView>(R.id.tvNationality).setText(R.string.owner_nationality)
         addView.findViewById<TextView>(R.id.tvJobTitle).setText(R.string.job_title)
         addView.findViewById<TextView>(R.id.tvQuantity).setText(R.string.quantity)
-        binding.btnNext.setText(R.string.next_btn)
-        binding.btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
         return view
     }
 

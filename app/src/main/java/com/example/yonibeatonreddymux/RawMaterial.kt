@@ -30,6 +30,8 @@ import kotlin.collections.ArrayList
 class RawMaterial : Fragment() {
     lateinit var binding: FragmentRawMaterialBinding
     lateinit var recyclerViewHsCode: RecyclerView
+    lateinit var btnNext:TextView
+    lateinit var btnBack:TextView
     var listHsCode = ArrayList<HSCodeDataClass>()
     lateinit var recyclerviewRawMaterial: RecyclerView
     var listRawMaterial = ArrayList<AddRawMaterialDataClass>()
@@ -47,6 +49,8 @@ class RawMaterial : Fragment() {
         binding = FragmentRawMaterialBinding.inflate(inflater, container, false)
         val view = binding.root
         val addView = layoutInflater.inflate(R.layout.add_rawmaterial, null)
+        btnBack=requireActivity().findViewById(R.id.btnBack)
+        btnNext=requireActivity().findViewById(R.id.btnNext)
         recyclerviewRawMaterial = binding.recyclerViewAddRawMaterial
         recyclerviewRawMaterial.layoutManager = LinearLayoutManager(requireContext())
         adapterAddRawMaterial = AddRawMaterialAdapter(listRawMaterial)
@@ -63,7 +67,7 @@ class RawMaterial : Fragment() {
                 EditRawMaterials(position)
             }
         })
-        binding.btnNext.setOnClickListener {
+        btnNext.setOnClickListener {
             if (!listRawMaterial.isNullOrEmpty()) {
                 val currentIndex = selectedLiveData.value
                 val nextIndex = currentIndex!! + 1
@@ -86,17 +90,12 @@ class RawMaterial : Fragment() {
             binding.constraintRawMaterial.layoutDirection = View.LAYOUT_DIRECTION_RTL
         }
 
-        binding.btnBack.setOnClickListener {
+        btnBack.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val previousIndex = currentIndex!! - 1
             selectedLiveData.value = previousIndex
         }
 
-        binding.btnConstraint.setOnApplyWindowInsetsListener { v, windowInsets ->
-            val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
-            windowInsets
-        }
         val alertBuilder = AlertDialog.Builder(requireContext())
         alertBuilder.setMessage(R.string.do_you_want_to_delete)
         alertBuilder.setTitle(R.string.delete)
@@ -264,8 +263,8 @@ class RawMaterial : Fragment() {
         resources.updateConfiguration(resources.configuration, resources.displayMetrics)
         binding.tvAddProduct.setText(R.string.add_btn)
         binding.tvNextAddProduct.setText(R.string.add_btn)
-        binding.btnNext.setText(R.string.next_btn)
-        binding.btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
         addProductView.findViewById<TextView>(R.id.tvProductHSCode).setText(R.string.hs_code)
         addProductView.findViewById<TextView>(R.id.tvProductName).setText(R.string.material_name)
         addProductView.findViewById<TextView>(R.id.tvProductNameValue).setText(R.string.metal_works)

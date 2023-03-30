@@ -29,7 +29,8 @@ import java.io.File
 class Attachments : Fragment() {
     lateinit var binding: FragmentAttachmentsBinding
     private lateinit var sampleUri: Uri
-
+lateinit var btnNext:TextView
+lateinit var btnBack:TextView
     @RequiresApi(Build.VERSION_CODES.R)
     @SuppressLint("Range", "ResourceAsColor")
     override fun onCreateView(
@@ -38,6 +39,8 @@ class Attachments : Fragment() {
     ): View? {
         binding = FragmentAttachmentsBinding.inflate(inflater, container, false)
         val view = binding.root
+        btnNext=requireActivity().findViewById(R.id.btnNext)
+        btnBack=requireActivity().findViewById(R.id.btnBack)
         //return inflater.inflate(R.layout.fragment_attachments, container, false)
         val uploadeFirst =
             registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -156,11 +159,7 @@ class Attachments : Fragment() {
         binding.ivUpload3.setOnClickListener {
             selectFromGallery(uploadThird)
         }
-        binding.btnConstraint.setOnApplyWindowInsetsListener { v, windowInsets ->
-            val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
-            windowInsets
-        }
+
 
         binding.tvAttachFeasibility.setText(R.string.attach_the_feasibility)
         binding.tvAttachLand.setText(R.string.attach_the_land)
@@ -171,10 +170,10 @@ class Attachments : Fragment() {
         binding.hint1.setText(R.string.mb_max_for_1file)
         binding.hint2.setText(R.string.mb_max_for_1file)
         binding.hint3.setText(R.string.mb_max_for_1file)
-        binding.btnBack.setText(R.string.back_btn)
-        binding.btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
 
-        binding.btnNext.setOnClickListener {
+        btnNext.setOnClickListener {
             if (binding.tvUpload1.text.isNullOrBlank() || binding.tvUpload2.text.isNullOrBlank() || binding.tvUpload3.text.isNullOrBlank()) {
                 binding.hint1.setTextColor(Color.parseColor("#E40909"))
                 binding.hint2.setTextColor(Color.parseColor("#E40909"))
@@ -188,7 +187,7 @@ class Attachments : Fragment() {
                 view.findNavController().navigate(R.id.action_mainDataRecycler_to_confirmation)
             }
         }
-        binding.btnBack.setOnClickListener {
+        btnBack.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val previousIndex = currentIndex!! - 1
             selectedLiveData.value = previousIndex

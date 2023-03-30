@@ -38,6 +38,8 @@ class Products : Fragment() {
     lateinit var recyclerViewHsCode: RecyclerView
     var listHsCode = ArrayList<HSCodeDataClass>()
     lateinit var recyclerviewAddProduct: RecyclerView
+    lateinit var btnNext:TextView
+    lateinit var btnBack:TextView
     var listAddProduct = kotlin.collections.ArrayList<AddProductDataClass>()
     lateinit var recyclerViewUnit: RecyclerView
     var listUnit = ArrayList<UnitDataClass>()
@@ -51,6 +53,8 @@ class Products : Fragment() {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
         val view = binding.root
         dialog = BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
+        btnNext=requireActivity().findViewById(R.id.btnNext)
+        btnBack=requireActivity().findViewById(R.id.btnBack)
         //val view= inflater.inflate(R.layout.fragment_products, container, false)
         val viewSheet = layoutInflater.inflate(R.layout.products_bottomsheet, null)
         var count = 0
@@ -81,12 +85,8 @@ class Products : Fragment() {
         binding.tvNextAddProduct.setOnClickListener {
             AddBottomSheet()
         }
-        binding.btnConstraint.setOnApplyWindowInsetsListener { v, windowInsets ->
-            val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
-            windowInsets
-        }
-        binding.btnNext.setOnClickListener {
+
+        btnNext.setOnClickListener {
             if (!listAddProduct.isNullOrEmpty()) {
                 val currentIndex = selectedLiveData.value
                 val nextIndex = currentIndex!! + 1
@@ -108,7 +108,7 @@ class Products : Fragment() {
                     .show()
             }
         }
-        binding.btnBack.setOnClickListener {
+        btnBack.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val previousIndex = currentIndex!! - 1
             selectedLiveData.value = previousIndex
@@ -209,8 +209,8 @@ class Products : Fragment() {
             addProductView.findViewById<TextView>(R.id.tvProductHSCodeValue).layoutDirection =
                 View.LAYOUT_DIRECTION_RTL
         }
-        binding.btnNext.setText(R.string.next_btn)
-        binding.btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
     }
 
     @SuppressLint("MissingInflatedId")

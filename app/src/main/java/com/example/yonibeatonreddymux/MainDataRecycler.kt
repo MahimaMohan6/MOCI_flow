@@ -1,14 +1,19 @@
 package com.example.yonibeatonreddymux
 
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.*
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -58,6 +63,7 @@ class MainDataRecycler : Fragment() {
     lateinit var recyclerView: RecyclerView
     var List = ArrayList<RecyclerDataClass>()
     var fragment = Fragment()
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -116,6 +122,11 @@ class MainDataRecycler : Fragment() {
         } else if (lang == "Arabic") {
             setLocal("ar")
             binding.mainDataRecycler.layoutDirection = View.LAYOUT_DIRECTION_RTL
+        }
+        binding.mainDataRecycler.setOnApplyWindowInsetsListener { v, windowInsets ->
+            val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
+            windowInsets
         }
         return view
     }

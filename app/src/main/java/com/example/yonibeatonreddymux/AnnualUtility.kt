@@ -15,6 +15,8 @@ import com.example.yonibeatonreddymux.databinding.FragmentAnnualUtilityBinding
 
 class AnnualUtility : Fragment() {
     lateinit var binding: FragmentAnnualUtilityBinding
+    lateinit var btnNext:TextView
+    lateinit var btnBack:TextView
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,8 +24,10 @@ class AnnualUtility : Fragment() {
     ): View? {
         binding = FragmentAnnualUtilityBinding.inflate(inflater, container, false)
         val view = binding.root
+        btnBack=requireActivity().findViewById(R.id.btnBack)
+        btnNext=requireActivity().findViewById(R.id.btnNext)
         // return inflater.inflate(R.layout.fragment_annual_utility, container, false)
-        binding.btnNext.setOnClickListener {
+        btnNext.setOnClickListener {
             val currentIndex= selectedLiveData.value
             val nextIndex= currentIndex!! +1
             selectedLiveData.value=nextIndex
@@ -35,16 +39,12 @@ class AnnualUtility : Fragment() {
             Session.manufacturing=binding.etManufacturing.text.toString()
         }
         tabSelect.add("6")
-        binding.btnBack.setOnClickListener {
+        btnBack.setOnClickListener {
             val currentIndex= selectedLiveData.value
             val previousIndex= currentIndex!! -1
             selectedLiveData.value=previousIndex
         }
-        binding.btnConstraint.setOnApplyWindowInsetsListener { v, windowInsets ->
-            val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
-            windowInsets
-        }
+
         binding.tvPleaseFill.setText(R.string.please_fill_in_the_following)
         binding.tvTotalInvest.setText(R.string.total_invest_capital_QAR)
         binding.etTotalInvest.setHint(R.string.total_invest_capital_QAR)
@@ -58,8 +58,8 @@ class AnnualUtility : Fragment() {
         binding.etGas.setHint(R.string.gas_and_diesel)
         binding.tvManufacturing.setText(R.string.manufacturing_stages)
         binding.etManufacturing.setHint(R.string.manufacturing_stages)
-        binding.btnNext.setText(R.string.next_btn)
-        binding.btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
         return view
     }
 

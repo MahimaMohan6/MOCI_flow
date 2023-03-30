@@ -28,6 +28,8 @@ class Machines : Fragment() {
     var listHsCode = ArrayList<HSCodeDataClass>()
     lateinit var recyclerViewUnit: RecyclerView
     var listUnit = ArrayList<UnitDataClass>()
+    lateinit var btnNext:TextView
+    lateinit var btnBack:TextView
     var listMachines = ArrayList<AddMachineAndSpare>()
     lateinit var recyclerViewMachines: RecyclerView
 
@@ -41,6 +43,8 @@ class Machines : Fragment() {
         val view = binding.root
         //val view= inflater.inflate(R.layout.fragment_machines, container, false)
         val addView = layoutInflater.inflate(R.layout.add_machine_and_spare, null)
+        btnNext=requireActivity().findViewById(R.id.btnNext)
+        btnBack=requireActivity().findViewById(R.id.btnBack)
         recyclerViewMachines = binding.recyclerViewAddMachines
         recyclerViewMachines.layoutManager = LinearLayoutManager(requireContext())
         var count = 0
@@ -65,11 +69,7 @@ class Machines : Fragment() {
                 count = 0
             }
         }
-        binding.btnConstraint.setOnApplyWindowInsetsListener { v, windowInsets ->
-            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams> { bottomMargin = insets.bottom }
-            windowInsets
-        }
+
 
         listHsCode.add(HSCodeDataClass("HS1111"))
         listHsCode.add(HSCodeDataClass("HS1121"))
@@ -199,13 +199,13 @@ class Machines : Fragment() {
         }
         tabSelect.add("3")
 
-        binding.btnNext.setOnClickListener {
+        btnNext.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val nextIndex = currentIndex!! + 1
             selectedLiveData.value = nextIndex
             Session.machineList = listMachines
         }
-        binding.btnBack.setOnClickListener {
+        btnBack.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val previousIndex = currentIndex!! - 1
             selectedLiveData.value = previousIndex
@@ -218,8 +218,8 @@ class Machines : Fragment() {
         addView.findViewById<TextView>(R.id.tvProductUnit).setText(R.string.unit)
         addView.findViewById<TextView>(R.id.tvProductValue).setText(R.string.value)
         addView.findViewById<TextView>(R.id.tvProductQuantity).setText(R.string.quantity)
-        binding.btnBack.setText(R.string.back_btn)
-        binding.btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
         binding.tvAdd.setText(R.string.add_btn)
         return view
     }

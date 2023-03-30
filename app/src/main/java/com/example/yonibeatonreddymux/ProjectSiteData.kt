@@ -38,6 +38,8 @@ class ProjectSiteData : Fragment() {
     lateinit var binding: FragmentProjectsiteDataBinding
     lateinit var recyclerViewProof: RecyclerView
     lateinit var recyclerViewEnvPermit: RecyclerView
+    lateinit var btnNext:TextView
+    lateinit var btnBack:TextView
     var listPermit = ArrayList<EnvPermitData>()
     var listProof = kotlin.collections.ArrayList<ProofRecyclerData>()
 
@@ -54,6 +56,8 @@ class ProjectSiteData : Fragment() {
         val bottomSheetBehaviorEnvPermit =
             BottomSheetBehavior.from(binding.cardViewEnvironmentalPermit)
         bottomSheetBehaviorEnvPermit.state = BottomSheetBehavior.STATE_HIDDEN
+        btnNext=requireActivity().findViewById(R.id.btnNext)
+        btnBack=requireActivity().findViewById(R.id.btnBack)
         //val view= inflater.inflate(R.layout.fragment_projectsite_data, container, false)
         //val btnNext = requireActivity().findViewById<TextView>(R.id.btnNext)
         //val btnBack = requireActivity().findViewById<TextView>(R.id.btnBack)
@@ -235,7 +239,7 @@ class ProjectSiteData : Fragment() {
             view.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
             windowInsets
         }*/
-        binding.btnNext.setOnClickListener {
+        btnNext.setOnClickListener {
             if (!binding.etPinNumber.text.isNullOrBlank()) {
                 binding.tvErrorPin.text = ""
                 if (!binding.etReleaseDate.text.isNullOrBlank() && !binding.etEnvironmentNumber.text.isNullOrBlank() && !binding.etReleaseDate.text.isNullOrBlank() && !binding.etEnvironmentExpiryDate.text.isNullOrBlank()) {
@@ -281,7 +285,7 @@ class ProjectSiteData : Fragment() {
                     .show()
             }
         }
-        binding.btnBack.setOnClickListener {
+        btnBack.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val previousIndex = currentIndex!! - 1
             selectedLiveData.value = previousIndex
@@ -294,11 +298,7 @@ class ProjectSiteData : Fragment() {
             binding.constraintProjectSiteData.layoutDirection = View.LAYOUT_DIRECTION_RTL
         }
 
-        binding.btnConstraint.setOnApplyWindowInsetsListener { _, windowInsets ->
-            val insets=windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams> {bottomMargin=insets.bottom  }
-            windowInsets
-        }
+
         return view
     }
 
@@ -363,8 +363,8 @@ class ProjectSiteData : Fragment() {
         binding.etEnvironmentIssueDate.setHint(R.string.date_format)
         binding.tvEnvironmentExpiryDate.setText(R.string.env_permit_expiry_date)
         binding.etEnvironmentExpiryDate.setHint(R.string.date_format)
-        binding.btnNext.setText(R.string.next_btn)
-        binding.btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
         binding.tvChoosePermit.setText(R.string.choose_permit_number)
         binding.tvChooseProof.setText(R.string.choose_proof_of_usufruct_rent_ownership)
     }
@@ -398,9 +398,9 @@ class ProjectSiteData : Fragment() {
         binding.clMainEnv.isEnabled = false
         binding.tvEnvironment.isEnabled = false
         binding.tvEnvironment.setTextColor(Color.parseColor("#8E8E8E"))
-        binding.btnNext.setBackgroundResource(R.drawable.bg_border_disabledbtn)
-        binding.btnNext.backgroundTintMode = null
-        binding.btnNext.setTextColor(Color.parseColor("#8E8E8E"))
+        btnNext.setBackgroundResource(R.drawable.bg_border_disabledbtn)
+        btnNext.backgroundTintMode = null
+        btnNext.setTextColor(Color.parseColor("#8E8E8E"))
     }
 
     @SuppressLint("ResourceAsColor")
@@ -433,8 +433,8 @@ class ProjectSiteData : Fragment() {
         binding.clMainEnv.isEnabled = true
         binding.tvEnvironment.isEnabled = true
         binding.tvEnvironment.setTextColor(Color.BLACK)
-        binding.btnNext.setTextColor(Color.WHITE)
-        binding.btnNext.setBackgroundResource(R.drawable.bg_btn_next)
+        btnNext.setTextColor(Color.WHITE)
+        btnNext.setBackgroundResource(R.drawable.bg_btn_next)
     }
 
 }

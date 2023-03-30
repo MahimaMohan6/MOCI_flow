@@ -1,6 +1,7 @@
 package com.example.yonibeatonreddymux
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.*
 import com.example.yonibeatonreddymux.databinding.FragmentMainDataBinding
 import java.util.*
+import java.util.zip.Inflater
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
 
@@ -24,7 +26,8 @@ var tabSelect = kotlin.collections.HashSet<String>()
 @Suppress("DEPRECATION")
 class MainData : Fragment() {
     lateinit var binding: FragmentMainDataBinding
-
+   lateinit var btnNext:TextView
+   lateinit var btnBack:TextView
     @RequiresApi(Build.VERSION_CODES.R)
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -34,7 +37,9 @@ class MainData : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentMainDataBinding.inflate(inflater, container, false)
         val view = binding.root
-        val btnBack = requireActivity().findViewById<TextView>(R.id.btnBack)
+        val btnConstraintView = inflater.inflate(R.layout.fragment_main_data_recycler, container, false)
+        btnNext=requireActivity().findViewById(R.id.btnNext)
+        btnBack=requireActivity().findViewById(R.id.btnBack)
         // val view= inflater.inflate(R.layout.fragment_main_data, container, false)
         var count = 0
         binding.ivExpand1.setOnClickListener {
@@ -47,6 +52,9 @@ class MainData : Fragment() {
                 count = 0
             }
         }
+        btnNext.isEnabled=true
+        btnNext.setTextColor(Color.WHITE)
+        btnNext.setBackgroundResource(R.drawable.bg_btn_next)
         binding.ivExapandAct1.setOnClickListener {
             count += 1
             binding.clActHiddenView.visibility = View.VISIBLE
@@ -58,23 +66,19 @@ class MainData : Fragment() {
             }
         }
 
-        binding.btnConstraint.setOnApplyWindowInsetsListener { v, insets ->
-            val windowInset = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updateLayoutParams<MarginLayoutParams> { bottomMargin = windowInset.bottom }
-            insets
-        }
+
         /*binding.btnConstraint.setOnApplyWindowInsetsListener { v, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.updateLayoutParams<MarginLayoutParams> { bottomMargin = insets.bottom }
             windowInsets
         }*/
         tabSelect.add("0")
-        binding.btnNext.setOnClickListener {
+        btnNext.setOnClickListener {
             val currentIndex = selectedLiveData.value
             val nextIndex = currentIndex!! + 1
             selectedLiveData.value = nextIndex
         }
-        binding.btnBack.setOnClickListener {
+       btnBack.setOnClickListener {
             requireActivity().onBackPressed()
         }
         if (lang == "English") {
@@ -121,7 +125,7 @@ class MainData : Fragment() {
         binding.tvActivityDescriptionValue.setText(R.string.activity_description_value)
         binding.tvActivityType.setText(R.string.activity_type)
         binding.tvActivityTypeValue.setText(R.string.activity_type_value)
-        binding.btnBack.setText(R.string.back_btn)
-        binding.btnNext.setText(R.string.next_btn)
+        btnBack.setText(R.string.back_btn)
+        btnNext.setText(R.string.next_btn)
     }
 }
